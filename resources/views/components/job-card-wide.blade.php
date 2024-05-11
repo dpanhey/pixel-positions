@@ -1,30 +1,21 @@
-<x-panel class="gap-4">
+@props(['job'])
 
-    <div class="flex items-center justify-center">
+<x-panel class="flex gap-x-6">
+    <div>
         <x-employer-logo />
     </div>
 
-    <div class="flex-1 flex flex-col justify-between px-2 font-bold">
-        <div class="flex flex-col gap-1">
-            <a href="#" class="text-sm text-gray-400">Laracasts</a>
-            <x-card-header>Full Stack Laravel Developer</x-card-header>
-        </div>
-        <div class="text-xs">
-            <p>Full Time - From $60,000</p>
-        </div>
+    <div class="flex-1 flex flex-col">
+        <a href="#" class="self-start text-sm text-gray-400 transition-colors duration-300">{{ $job->employer->name }}</a>
+
+        <h3 class="font-bold text-xl mt-3 group-hover:text-blue-800">{{ $job->title }}</h3>
+
+        <p class="text-sm text-gray-400 mt-auto">{{ $job->salary }}</p>
     </div>
 
-    <div class="flex flex-col justify-between items-end">
-        <div class="flex space-x-3">
-            <x-tag size="small">Remote</x-tag>
-            <x-tag size="small">22h</x-tag>
-        </div>
-        <div class="flex space-x-3">
-            <x-tag size="small">Tag</x-tag>
-            <x-tag size="small">Tag</x-tag>
-            <x-tag size="small">Tag</x-tag>
-        </div>
-
-
+    <div class="space-x-2">
+        @foreach($job->tags as $tag)
+            <x-tag :$tag />
+        @endforeach
     </div>
 </x-panel>
