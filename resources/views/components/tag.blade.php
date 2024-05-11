@@ -1,4 +1,19 @@
+@props(['size' => 'base'])
+
+@php
+    $classes = 'bg-white/20 hover:bg-white/40 rounded-xl font-bold transition-colors duration-300';
+
+    if ($size === 'base') {
+        $classes .= ' px-5 py-1 text-sm';
+    }
+
+    if ($size === 'small') {
+        $classes .= ' px-3 py-1 text-2xs';
+    }
+
+@endphp
+
 <a href="#"
-    {{ $attributes->merge(['class' => 'bg-white/20 hover:bg-white/40 px-2 py-1 rounded-xl text-xs transition-colors duration-200']) }}>
+   class="{{ $classes }}">
     {{ $slot }}
 </a>
