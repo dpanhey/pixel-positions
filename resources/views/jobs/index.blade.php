@@ -4,12 +4,13 @@
             <div class="flex flex-col items-center gap-4 pb-10 pt-6">
                 <h1 class="font-bold text-4xl">Let's Find Your Next Job</h1>
 
-                <form action=""
-                      class="w-full max-w-xl">
-                    <input type="text"
-                           placeholder="Web Developer..."
-                           class="flex w-full px-4 py-2 rounded-xl bg-white/10 border-white/15">
-                </form>
+                <x-forms.form class="w-full max-w-xl"
+                              action="/search">
+                    <x-forms.input name="q"
+                                   :label="false"
+                                   placeholder="Web Developer..."
+                                   class="flex w-full px-4 py-2 rounded-xl bg-white/10 border-white/15"/>
+                </x-forms.form>
             </div>
         </section>
 
@@ -28,7 +29,7 @@
 
             <div class="mt-6 space-x-3">
                 @foreach($tags as $tag)
-                    <x-tag :$tag />
+                    <x-tag :$tag/>
                 @endforeach
             </div>
         </section>

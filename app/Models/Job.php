@@ -12,6 +12,15 @@ class Job extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        '_token',
+        'title',
+        'url',
+        'location',
+        'salary',
+        'schedule',
+        'featured',
+    ];
 
     public function tag(string $name): void
     {
